@@ -1,0 +1,60 @@
+:root {
+  --ink: #16222B; --paper: #E8EDF0; --card: #F7F9FA; --teal: #0E5A62; --amber: #E9B44C; --alert: #B4243B; --line: #C4CFD6;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ink: #E6EDF1; --paper: #11181D; --card: #1A242B; --line: #34444F; --teal: #4FB3BD; --amber: #E9B44C; --alert: #FF8594; color-scheme: dark; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 15px/1.5 "IBM Plex Sans", system-ui, sans-serif; }
+h1, h2 { font-family: "Bricolage Grotesque", system-ui, sans-serif; margin: 0; }
+h1 { font-size: 28px; font-weight: 800; }
+h2 { font-size: 18px; font-weight: 600; margin-bottom: 12px; }
+.app { display: grid; grid-template-columns: 280px 1fr; min-height: 100vh; }
+aside { padding: 24px; border-right: 1px solid var(--line); background: var(--card); }
+.lede { color: var(--ink); opacity: .75; max-width: 34ch; }
+main { padding: 24px; display: grid; gap: 20px; align-content: start; min-width: 0; }
+section { background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 18px; min-width: 0; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+button { font: inherit; color: var(--ink); background: transparent; border: 1px solid var(--ink); border-radius: 4px; padding: 6px 12px; cursor: pointer; }
+button:focus-visible, input:focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; }
+button:disabled { opacity: .35; cursor: default; }
+button.primary { background: var(--teal); color: #fff; border-color: var(--teal); font-weight: 500; }
+.incidents { list-style: none; padding: 0; margin: 16px 0; display: grid; gap: 6px; }
+.inc { width: 100%; text-align: left; display: flex; justify-content: space-between; border-color: var(--line); }
+.inc.on { border-color: var(--teal); box-shadow: inset 4px 0 0 var(--amber); }
+small { opacity: .65; }
+.graph { width: 100%; height: auto; }
+.node { fill: var(--paper); stroke: var(--ink); stroke-width: 1.5; }
+.node.external { fill: #F3D4D9; stroke: var(--alert); }
+.node.identity { fill: #FBEBC8; stroke: #8A6410; }
+.graph { color: var(--ink); }
+.graph .edge-label { paint-order: stroke; stroke: var(--card); stroke-width: 4px; }
+.graph .label { fill: #16222B; }
+.timeline { list-style: none; margin: 0; padding: 0 0 0 16px; border-left: 3px solid var(--teal); display: grid; gap: 14px; }
+.stage { font-weight: 600; text-transform: none; }
+.time { font-size: 13px; opacity: .7; }
+.detail { font-size: 14px; }
+.tag { color: #fff; font-size: 12px; padding: 1px 8px; border-radius: 10px; }
+.filters { display: flex; gap: 6px; margin-bottom: 10px; }
+.chip.on { background: var(--ink); color: var(--paper); }
+.scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.bar { width: 90px; height: 8px; background: var(--line); border-radius: 4px; }
+.bar div { height: 100%; background: var(--alert); border-radius: 4px; }
+.note { font-size: 13px; opacity: .65; margin: 8px 0 0; }
+.score { display: grid; gap: 12px; }
+label { display: grid; gap: 4px; font-weight: 500; }
+input { font: inherit; padding: 7px 10px; border: 1px solid var(--line); border-radius: 4px; background: var(--paper); color: var(--ink); }
+fieldset { border: 1px solid var(--line); border-radius: 4px; padding: 8px 12px; }
+.row { display: flex; justify-content: space-between; align-items: center; padding: 3px 0; }
+.row button { padding: 2px 8px; margin-left: 4px; font-size: 13px; }
+.actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.result { display: grid; padding: 12px; border-left: 4px solid var(--amber); background: var(--paper); }
+.result strong { font-size: 22px; }
+.empty { opacity: .7; } .empty.big { padding: 48px 0; font-size: 18px; }
+.error { color: var(--alert); font-weight: 500; }
+@media (max-width: 900px) { .app, .two { grid-template-columns: 1fr; } aside { border-right: 0; border-bottom: 1px solid var(--line); } }
+
+.graph .label-internal { fill: var(--ink); }
